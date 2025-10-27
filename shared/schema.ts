@@ -47,12 +47,39 @@ export const contactSchema = z.object({
 
 export type Contact = z.infer<typeof contactSchema>;
 
+// Achievement Schema
+export const achievementSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  issuer: z.string(),
+  date: z.string(),
+  description: z.string().optional(),
+  certificateUrl: z.string().url().optional(),
+  credentialId: z.string().optional(),
+});
+
+export type Achievement = z.infer<typeof achievementSchema>;
+
+// Extra Curricular Schema
+export const extraCurricularSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  organization: z.string(),
+  period: z.string(),
+  description: z.string(),
+  role: z.string().optional(),
+});
+
+export type ExtraCurricular = z.infer<typeof extraCurricularSchema>;
+
 // Portfolio Data Schema (complete portfolio)
 export const portfolioSchema = z.object({
   about: aboutSchema,
   contact: contactSchema,
   projects: z.array(projectSchema),
   skills: z.array(skillSchema),
+  achievements: z.array(achievementSchema),
+  extraCurricular: z.array(extraCurricularSchema),
 });
 
 export type Portfolio = z.infer<typeof portfolioSchema>;

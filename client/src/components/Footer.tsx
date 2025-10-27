@@ -20,6 +20,8 @@ export function Footer({ contact }: FooterProps) {
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
+    { name: "Achievements", href: "#achievements" },
+    { name: "Extra Curricular", href: "#extracurricular" },
     { name: "Contact", href: "#contact" },
   ];
 

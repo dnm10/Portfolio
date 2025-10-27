@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/components/ThemeProvider";
 
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
+  { name: "Achievements", href: "#achievements" },
+  { name: "Extra Curricular", href: "#extracurricular" },
   { name: "Contact", href: "#contact" },
 ];
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,7 +57,7 @@ export function Navigation() {
             </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex gap-8">
+            <div className="hidden md:flex gap-8 items-center">
               {navLinks.map((link) => (
                 <button
                   key={link.name}
@@ -64,18 +68,43 @@ export function Navigation() {
                   {link.name}
                 </button>
               ))}
+              <Button
+                size="icon"
+                variant="ghost"
+                onClick={toggleTheme}
+                data-testid="button-theme-toggle"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <Button
-              size="icon"
-              variant="ghost"
-              className="md:hidden"
-              onClick={() => setIsOpen(!isOpen)}
-              data-testid="button-mobile-menu"
-            >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+            {/* Mobile Menu Button and Theme Toggle */}
+            <div className="flex items-center gap-2 md:hidden">
+              <Button
+                size="icon"
+                variant="ghost"
+                onClick={toggleTheme}
+                data-testid="button-theme-toggle-mobile"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+              <Button
+                size="icon"
+                variant="ghost"
+                onClick={() => setIsOpen(!isOpen)}
+                data-testid="button-mobile-menu"
+              >
+                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </Button>
+            </div>
           </div>
         </div>
       </motion.nav>
