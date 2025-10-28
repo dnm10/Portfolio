@@ -14,7 +14,10 @@ export function ThemeProvider({
       enableSystem
       {...props}
     >
-      {children}
+      {/* 🌗 Global theme background + text */}
+      <div className="bg-white text-black dark:bg-[#0a0e17] dark:text-white transition-colors duration-500 min-h-screen">
+        {children}
+      </div>
     </NextThemesProvider>
   );
 }

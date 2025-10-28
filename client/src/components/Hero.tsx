@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ParticlesBackground } from "./ParticlesBackground";
+import AIChatbot from "@/components/AIChatbot";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { useTheme } from "next-themes"; // ✅ Correct hook import
 
@@ -125,6 +126,7 @@ export function Hero() {
           <ChevronDown className="h-8 w-8" />
         </motion.button>
       </motion.div>
+      <AIChatbot />
     </section>
   );
 }
