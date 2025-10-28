@@ -47,7 +47,7 @@ export function Contact({ data }: ContactProps) {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-6 md:px-8">
+    <section id="contact" className="py-20 md:py-32 px-6 md:px-8 bg-[#0a0e17]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}

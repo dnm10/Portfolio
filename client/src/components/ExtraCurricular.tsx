@@ -18,7 +18,7 @@ export function ExtraCurricular({ data }: ExtraCurricularProps) {
   }
 
   return (
-    <section id="extracurricular" className="py-20 md:py-32 px-6 md:px-8 bg-card/30">
+    <section id="extracurricular" className="py-20 md:py-32 px-6 md:px-8 bg-[#0a0e17]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}

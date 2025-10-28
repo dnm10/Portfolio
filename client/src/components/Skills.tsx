@@ -32,7 +32,7 @@ export function Skills({ data }: SkillsProps) {
   }, {} as Record<string, Skill[]>);
 
   return (
-    <section id="skills" className="py-20 md:py-32 px-6 md:px-8 bg-card/30">
+    <section id="skills" className="py-20 md:py-32 px-6 md:px-8 bg-[#0a0e17]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}

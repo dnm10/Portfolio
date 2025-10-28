@@ -1,27 +1,32 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "@/components/ThemeProvider";
+import { useTheme } from "next-themes";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
+  { name: "Home", href: "#hero" },
+  { name: "Services", href: "#services" },
+  { name: "Resume", href: "#resume" },
+  { name: "Works", href: "#works" },
   { name: "Skills", href: "#skills" },
-  { name: "Achievements", href: "#achievements" },
-  { name: "Extra Curricular", href: "#extracurricular" },
+  { name: "Testimonial", href: "#testimonial" },
   { name: "Contact", href: "#contact" },
 ];
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  useEffect(() => {
+  console.log("🌗 Current theme:", theme);
+}, [theme]);
+
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -37,42 +42,43 @@ export function Navigation() {
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
+        initial={false}
         animate={{ y: 0 }}
-        transition={{ duration: 0.3 }}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        transition={{ duration: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border"
+            ? "backdrop-blur-md border-b border-border bg-white/95 dark:bg-[#0f0f0f]/95"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="flex justify-between items-center py-4">
+            {/* Logo */}
             <button
               onClick={() => scrollToSection("#hero")}
-              className="text-xl font-bold font-display hover-elevate active-elevate-2 px-2 py-1 rounded-md transition-colors"
-              data-testid="link-logo"
+              className="text-2xl font-bold font-display transition-colors text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary"
             >
-              Portfolio
+              SAJAL
             </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex gap-8 items-center">
+            <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hover-elevate active-elevate-2 px-3 py-2 rounded-md"
-                  data-testid={`link-${link.name.toLowerCase()}`}
+                  className="text-sm font-medium transition-colors text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
                 >
                   {link.name}
                 </button>
               ))}
+
+              {/* Theme Toggle */}
               <Button
                 size="icon"
                 variant="ghost"
-                onClick={toggleTheme}
-                data-testid="button-theme-toggle"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="ml-2 text-gray-800 dark:text-gray-200 hover:text-primary"
               >
                 {theme === "dark" ? (
                   <Sun className="h-5 w-5" />
@@ -82,13 +88,13 @@ export function Navigation() {
               </Button>
             </div>
 
-            {/* Mobile Menu Button and Theme Toggle */}
+            {/* Mobile Controls */}
             <div className="flex items-center gap-2 md:hidden">
               <Button
                 size="icon"
                 variant="ghost"
-                onClick={toggleTheme}
-                data-testid="button-theme-toggle-mobile"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="text-gray-800 dark:text-gray-200"
               >
                 {theme === "dark" ? (
                   <Sun className="h-5 w-5" />
@@ -96,11 +102,12 @@ export function Navigation() {
                   <Moon className="h-5 w-5" />
                 )}
               </Button>
+
               <Button
                 size="icon"
                 variant="ghost"
                 onClick={() => setIsOpen(!isOpen)}
-                data-testid="button-mobile-menu"
+                className="text-gray-800 dark:text-gray-200"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
@@ -109,7 +116,7 @@ export function Navigation() {
         </div>
       </motion.nav>
 
-      {/* Mobile Navigation Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -117,24 +124,20 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-lg md:hidden"
-            data-testid="mobile-menu-overlay"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 backdrop-blur-lg bg-white/95 dark:bg-[#0f0f0f]/95 md:hidden"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-8">
-              {navLinks.map((link, index) => (
-                <motion.button
-                  key={link.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-2xl font-semibold hover:text-primary transition-colors"
-                  data-testid={`mobile-link-${link.name.toLowerCase()}`}
-                >
-                  {link.name}
-                </motion.button>
-              ))}
-            </div>
+            {navLinks.map((link, index) => (
+              <motion.button
+                key={link.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                onClick={() => scrollToSection(link.href)}
+                className="text-2xl font-semibold transition-colors text-gray-800 dark:text-gray-100 hover:text-primary dark:hover:text-primary"
+              >
+                {link.name}
+              </motion.button>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>

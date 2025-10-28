@@ -26,7 +26,7 @@ export function Footer({ contact }: FooterProps) {
   ];
 
   return (
-    <footer className="border-t border-border py-8 md:py-12 px-6 md:px-8">
+    <footer className="border-t border-border py-8 md:py-12 px-6 md:px-8 bg-[#0a0e17]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
