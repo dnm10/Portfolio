@@ -8,11 +8,11 @@ import { useTheme } from "next-themes";
 
 const navLinks = [
   { name: "Home", href: "#hero" },
-  { name: "Services", href: "#services" },
-  { name: "Resume", href: "#resume" },
-  { name: "Works", href: "#works" },
+  { name: "About Me", href: "#about" },
+  { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
-  { name: "Testimonial", href: "#testimonial" },
+  { name: "Achievements", href: "#achievements" },
+  { name: "Extra Curricular", href: "#extracurricular" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -47,7 +47,7 @@ export function Navigation() {
         transition={{ duration: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "backdrop-blur-md border-b border-border bg-white/95 dark:bg-[#0f0f0f]/95"
+            ? "backdrop-blur-md border-b border-border bg-white/95 dark:bg-[#0a0e17]"
             : "bg-transparent"
         }`}
       >
@@ -58,7 +58,7 @@ export function Navigation() {
               onClick={() => scrollToSection("#hero")}
               className="text-2xl font-bold font-display transition-colors text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary"
             >
-              SAJAL
+              DEEPTI
             </button>
 
             {/* Desktop Navigation */}
