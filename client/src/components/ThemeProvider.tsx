@@ -15,7 +15,7 @@ export function ThemeProvider({
       {...props}
     >
       {/* 🌗 Global theme background + text */}
-      <div className="bg-white text-black dark:bg-[#0a0e17] dark:text-white transition-colors duration-500 min-h-screen">
+      <div className="bg-white text-black dark:bg-[#0a0e17] dark:text-white transition-colors duration-100 min-h-screen">
         {children}
       </div>
     </NextThemesProvider>

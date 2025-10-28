@@ -18,7 +18,7 @@ export function ExtraCurricular({ data }: ExtraCurricularProps) {
   }
 
   return (
-    <section id="extracurricular" className="py-20 md:py-32 px-6 md:px-8 bg-background text-foreground transition-colors duration-500">
+    <section id="extracurricular" className="py-20 md:py-32 px-6 md:px-8 bg-white text-gray-900 dark:bg-[#0a0e17] dark:text-white transition-colors duration-100">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}

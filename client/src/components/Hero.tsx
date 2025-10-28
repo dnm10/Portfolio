@@ -26,10 +26,10 @@ const itemVariants = {
 };
 
 export function Hero() {
-  const { theme } = useTheme(); // ✅ Correct way to access theme
+  const { theme } = useTheme(); 
 
   const [text] = useTypewriter({
-    words: ["Web Developer", "Frontend Developer", "UI/UX Designer"],
+    words: ["Machine Learning Engineer", "AI Engineer", "Full-stack Developer", "Tech Enthusiast"],
     loop: true,
     delaySpeed: 2000,
   });
@@ -44,8 +44,8 @@ export function Hero() {
       id="hero"
       className={`relative min-h-screen flex flex-col justify-center items-center overflow-hidden px-6 md:px-8 transition-colors duration-500 ${
         theme === "dark"
-          ? "bg-[#0a0e17] text-white" // ✅ matches About section dark navy
-          : "bg-gradient-to-b from-white  text-gray-900" // ✅ light theme clean
+          ? "bg-[#0a0e17] text-white" 
+          : "bg-gradient-to-b from-white  text-gray-900" // light theme
       }`}
     >
 

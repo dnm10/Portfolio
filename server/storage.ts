@@ -26,9 +26,9 @@ export class MemStorage implements IStorage {
       projects: [
         {
           id: "1",
-          title: "E-Commerce Platform",
-          description: "A full-featured e-commerce platform with shopping cart, payment integration, and admin dashboard. Built with modern best practices and scalable architecture.",
-          techStack: ["React", "Node.js", "PostgreSQL", "Stripe", "TypeScript"],
+          title: "AI Voice Tutor : SpeakGenie",
+          description: "Built an AI voice tutor for kids (6 to 16) using Whisper, GPT-4, and ElevenLabs for real-time, natural voice interaction — featuring roleplay chats, multilingual support, and engaging emoji feedback.",
+          techStack: ["Next.js", "Node.js", "Whisper", "ElevenLabs", "OpenAI GPT-4"],
           liveUrl: "https://example.com",
           githubUrl: "https://github.com/yourusername/ecommerce",
           featured: true,

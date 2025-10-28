@@ -15,7 +15,7 @@ export function Projects({ data }: ProjectsProps) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-20 md:py-32 px-6 md:px-8 bg-background text-foreground transition-colors duration-500">
+    <section id="projects" className="py-20 md:py-32 px-6 md:px-8 bg-white text-gray-900 dark:bg-[#0a0e17] dark:text-white transition-colors duration-100">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
