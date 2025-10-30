@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 
@@ -72,6 +72,18 @@ export function Navigation() {
                   {link.name}
                 </button>
               ))}
+              
+              {/* Download Resume Button */}
+              <a
+                href="/resume.pdf" // ✅ place your resume in the public folder as resume.pdf
+                download
+                className="ml-4 px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all"
+              >
+                <div className="flex items-center gap-2">
+                  <Download className="h-4 w-4" />
+                  Resume
+                </div>
+              </a>
 
               {/* Theme Toggle */}
               <Button
@@ -138,6 +150,15 @@ export function Navigation() {
                 {link.name}
               </motion.button>
             ))}
+
+            {/* Mobile Resume Button */}
+            <a
+              href="/resume.pdf"
+              download
+              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-all flex items-center gap-2"
+            >
+              <Download className="h-5 w-5" /> Download Resume
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
