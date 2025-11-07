@@ -60,7 +60,7 @@ export function Hero() {
         className="relative z-10 flex flex-col items-center justify-center text-center"
       >
         <motion.img
-          src="/your-photo.jpg"
+          src="src/images/deepti_profile_img.png"
           alt="Profile"
           className={`w-24 h-24 rounded-full border-2 mb-6 ${
             theme === "dark" ? "border-gray-400" : "border-gray-600"
@@ -98,7 +98,7 @@ export function Hero() {
         <motion.div variants={itemVariants} className="mt-8">
           <Button
             size="lg"
-            onClick={() => scrollToSection("#works")}
+            onClick={() => scrollToSection("#experience")}
             className="px-8 py-3 text-lg"
           >
             See my work
