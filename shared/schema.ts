@@ -11,7 +11,6 @@ export const projectSchema = z.object({
   githubUrl: z.string().url().optional(),
   featured: z.boolean().default(false),
 });
-
 export type Project = z.infer<typeof projectSchema>;
 
 // Skills Schema
@@ -21,7 +20,6 @@ export const skillSchema = z.object({
   category: z.enum(["Languages", "Frameworks", "Tools", "Soft Skills"]),
   icon: z.string().optional(),
 });
-
 export type Skill = z.infer<typeof skillSchema>;
 
 // About Info Schema
@@ -34,7 +32,6 @@ export const aboutSchema = z.object({
   interests: z.array(z.string()).optional(),
   profileImage: z.string().optional(),
 });
-
 export type About = z.infer<typeof aboutSchema>;
 
 // Contact Info Schema
@@ -44,7 +41,6 @@ export const contactSchema = z.object({
   linkedin: z.string().url(),
   phone: z.string().optional(),
 });
-
 export type Contact = z.infer<typeof contactSchema>;
 
 // Achievement Schema
@@ -57,7 +53,6 @@ export const achievementSchema = z.object({
   certificateUrl: z.string().url().optional(),
   credentialId: z.string().optional(),
 });
-
 export type Achievement = z.infer<typeof achievementSchema>;
 
 // Extra Curricular Schema
@@ -69,10 +64,23 @@ export const extraCurricularSchema = z.object({
   description: z.string(),
   role: z.string().optional(),
 });
-
 export type ExtraCurricular = z.infer<typeof extraCurricularSchema>;
 
-// Portfolio Data Schema (complete portfolio)
+
+// ✅ Experience Schema (new)
+export const experienceSchema = z.object({
+  id: z.string(),
+  title: z.string(), // e.g., "Frontend Developer Intern"
+  company: z.string(), // e.g., "Google"
+  period: z.string(), // e.g., "Jun 2024 – Aug 2024"
+  location: z.string().optional(),
+  description: z.string(),
+  technologies: z.array(z.string()).optional(),
+});
+export type Experience = z.infer<typeof experienceSchema>;
+
+
+// ✅ Portfolio Data Schema (complete portfolio)
 export const portfolioSchema = z.object({
   about: aboutSchema,
   contact: contactSchema,
@@ -80,6 +88,7 @@ export const portfolioSchema = z.object({
   skills: z.array(skillSchema),
   achievements: z.array(achievementSchema),
   extraCurricular: z.array(extraCurricularSchema),
+  experience: z.array(experienceSchema), // ✅ added here
 });
 
 export type Portfolio = z.infer<typeof portfolioSchema>;

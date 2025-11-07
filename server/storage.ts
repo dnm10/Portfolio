@@ -10,19 +10,41 @@ export class MemStorage implements IStorage {
   constructor() {
     this.portfolio = {
       about: {
-        name: "Your Name",
+        name: "Deepti Mahajan",
         title: "Full Stack Developer",
-        bio: "I'm a passionate developer with expertise in building modern web applications. I love creating beautiful, functional, and user-centered digital experiences that make a difference.\n\nWith several years of experience in software development, I specialize in full-stack development using modern technologies like React, TypeScript, and Node.js. I'm constantly learning and exploring new technologies to stay at the forefront of web development.\n\nWhen I'm not coding, I enjoy contributing to open-source projects, writing technical blog posts, and mentoring aspiring developers. I believe in writing clean, maintainable code and following best practices to deliver high-quality software.",
-        location: "San Francisco, CA",
+        bio: "Aspiring Machine Learning and AI practitioner with a solid foundation in Python, data analysis, and basic statistical modeling. Familiar with full-stack web development using React.js, Node.js, and MySQL. Passionate about solving real-world problems with data-driven solutions and eager to learn emerging technologies. Quick to adapt and grow through hands-on projects and continuous learning, and excited to contribute as part of an innovative team. ",
+        location: "Mumbai, Maharashtra",
         availability: "Open to new opportunities",
         interests: ["Open Source", "Web Performance", "UI/UX Design", "Technical Writing"],
         profileImage: "",
       },
       contact: {
-        email: "your.email@example.com",
-        github: "https://github.com/yourusername",
-        linkedin: "https://linkedin.com/in/yourusername",
+        email: "deeptinm10@gmail.com",
+        github: "https://github.com/dnm10",
+        linkedin: "https://www.linkedin.com/in/deepti-mahajan-11641b296/",
       },
+      experience: [
+        {
+          id: "1",
+          title: "Full Stack Developer Intern",
+          company: "TechNova Solutions",
+          period: "June 2024 – September 2024",
+          location: "Mumbai, Maharashtra",
+          description:
+            "Developed and optimized full-stack web applications using React.js and Node.js. Improved API efficiency by 30% and implemented user authentication and role-based dashboards.",
+          technologies: ["React.js", "Node.js", "Express", "MongoDB", "JWT"],
+        },
+        {
+          id: "2",
+          title: "AI Research Intern",
+          company: "InnovateAI Labs",
+          period: "January 2024 – May 2024",
+          location: "Remote",
+          description:
+            "Worked on NLP-based chatbot prototype integrating GPT-4 APIs. Focused on prompt engineering, conversational flow optimization, and model fine-tuning for education use cases.",
+          technologies: ["Python", "GPT-4", "Flask", "Docker"],
+          },
+      ],
       projects: [
         {
           id: "1",
@@ -35,9 +57,9 @@ export class MemStorage implements IStorage {
         },
         {
           id: "2",
-          title: "Task Management App",
-          description: "A collaborative task management application with real-time updates, team workspaces, and advanced filtering. Perfect for remote teams.",
-          techStack: ["React", "Firebase", "Tailwind CSS", "TypeScript"],
+          title: "MedStock - Medical Inventory Management System",
+          description: "Led a team to build MedStock, a medical inventory management system using React.js and Node.js.Developed real-time tracking, automated alerts, and role-based access for efficient stock management.",
+          techStack: ["React", "Node Js", "Tailwind CSS", "Express Js", "MYSQL"],
           githubUrl: "https://github.com/yourusername/tasks",
           featured: true,
         },

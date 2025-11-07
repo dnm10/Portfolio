@@ -6,6 +6,7 @@ import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { Achievements } from "@/components/Achievements";
 import { ExtraCurricular } from "@/components/ExtraCurricular";
+import { Experience } from "@/components/Experience"; // ✅ new import
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import type { Portfolio } from "@shared/schema";
@@ -45,6 +46,7 @@ export default function PortfolioPage() {
       <main>
         <Hero />
         <About data={portfolio.about} />
+        <Experience data={portfolio.experience || []} />
         <Projects data={portfolio.projects} />
         <Skills data={portfolio.skills} />
         <Achievements data={portfolio.achievements || []} />

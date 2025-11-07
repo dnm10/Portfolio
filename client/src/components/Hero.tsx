@@ -84,7 +84,7 @@ export function Hero() {
           }`}
         >
           Hi! I’m{" "}
-          <span className="text-primary font-semibold">Sajal</span> — A Passionate{" "}
+          <span className="text-primary font-semibold">Deepti</span> — A Passionate{" "}
           <span
             className={`${
               theme === "dark" ? "text-cyan-400" : "text-blue-600"
