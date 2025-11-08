@@ -20,6 +20,11 @@ registerRoutes(app);
 
 // Start the server for local dev
 const PORT = process.env.PORT || 5000;
+app.get("/", (req, res) => {
+  res.send("🚀 Server is running! Add your frontend or API routes here.");
+});
+
+
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
