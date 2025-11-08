@@ -1,7 +1,7 @@
-// api/index.ts
+// server/index.ts
 import express from "express";
-import { registerRoutes } from "../server/routes"; // path relative to api/
 import bodyParser from "body-parser";
+import { registerRoutes } from "./routes"; // adjust path if needed
 
 const app = express();
 
@@ -15,10 +15,11 @@ app.use((req, _res, next) => {
   next();
 });
 
-// Register routes from server
+// Register your app routes
 registerRoutes(app);
 
-// Export handler for Vercel
-export default function handler(req: any, res: any) {
-  return app(req, res);
-}
+// Start the server for local dev
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
