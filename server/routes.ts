@@ -1,9 +1,8 @@
-import type { Express } from "express";
-import { createServer, type Server } from "http";
-import { storage } from "./storage";
 
-export async function registerRoutes(app: Express): Promise<Server> {
-  // Portfolio API endpoint
+import { Express } from "express";
+import storage from "./storage"; 
+
+export function registerRoutes(app: Express) {
   app.get("/api/portfolio", async (_req, res) => {
     try {
       const portfolio = await storage.getPortfolio();
@@ -14,7 +13,5 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  const httpServer = createServer(app);
-
-  return httpServer;
+  // register more routes here...
 }
